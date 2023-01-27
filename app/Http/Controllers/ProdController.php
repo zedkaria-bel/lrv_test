@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Production;
 use App\Models\Category;
 use App\Models\Unit as ModelsUnit;
+use App\Models\Wilaya;
 
 class ProdController extends Controller
 {
@@ -23,8 +24,12 @@ class ProdController extends Controller
 
             // 'prods' => Production::without('category', 'user')->get()->sortBy('id')
 
-            'prods' => Production::latest()->filter(request(['search', 'category', 'user']))->paginate(2)->appends(request()->all()),
-            'units' => ModelsUnit::all()->unique()
+            'prods' => Production::latest()->filter(request(['search', 'category', 'user', 'wilaya', 'from', 'to']))->paginate()->appends(request()->all()),
+            // 'prods' => Production::latest(),
+            'units' => ModelsUnit::all()->unique(),
+            'wilayas' => Wilaya::all(),
+            'currentDateFrom' => request('from'),
+            'currentDateTo' => request('to')
         ]);
     }
 

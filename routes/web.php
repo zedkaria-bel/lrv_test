@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AjaxController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdController;
 use App\Http\Controllers\RegisterController;
@@ -19,3 +20,7 @@ Route::post('register', [RegisterController::class, 'store'])->name('register')-
 Route::get('login', [SessionController::class, 'create'])->name('login')->middleware('guest');
 Route::post('login', [SessionController::class, 'store'])->name('login')->middleware('guest');
 Route::post('logout', [SessionController::class, 'destroy'])->name('logout')->middleware('auth');
+
+
+// AJAX
+Route::post('/get-communes', [AjaxController::class, 'get_communes'])->name('get-communes');

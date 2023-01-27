@@ -12,7 +12,14 @@
             </x-search-bar>
         </div>
     </div>
-    <div class="filters d-flex flex-row mt-3 w-50">
+    <div class="err-date rounded px-4 py-2 col-9 fw-bold mt-2 fs-5" style="background: #f5d1d1; color: #9f3333; display: none;">
+        Veuillez choisir une date ultérieur.
+    </div>
+    <div class="filters d-flex flex-row mt-3 col-9 align-items-center">
         <x-category-drop-down/>
+        <p class="mb-0 text-center">DU</p>
+        <input type="date" class="form-control mx-2" name="from" id="from" value="{{$currentDateFrom}}"/>
+        <p class="mb-0 text-center">AU</p>
+        <input type="date" class="form-control mx-2" name="to" id="to" value="{{$currentDateTo}}" {{ $currentDateFrom == ''? 'disabled' : '' }} />
     </div>
 </div>

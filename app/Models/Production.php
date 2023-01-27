@@ -26,6 +26,15 @@ class Production extends Model
         $query->when($filters['user'] ?? false, function($query, $user){
             $query->whereHas('user', fn($query) => $query->where('username', $user));
         });
+        $query->when($filters['wilaya'] ?? false, function($query, $wilaya){
+            $query->whereHas('wilaya', fn($query) => $query->where('wilaya_id', $wilaya));
+        });
+        $query->when($filters['from'] ?? false, function($query, $from){
+            $query->where('date', '>=', $from);
+        });
+        $query->when($filters['to'] ?? false, function($query, $to){
+            $query->where('date', '<=', $to);
+        });
     }
 
     public function category(){
@@ -38,6 +47,10 @@ class Production extends Model
 
     public function unit(){
         return $this->belongsTo(Unit::class, 'unit_id');
+    }
+
+    public function wilaya(){
+        return $this->belongsTo(Wilaya::class, 'wilaya_id');
     }
 
 }
