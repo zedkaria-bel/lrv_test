@@ -5,6 +5,7 @@ namespace App\View\Components;
 use Illuminate\View\Component;
 use App\Models\Category;
 use App\Models\Wilaya;
+use Auth;
 
 class CategoryDropDown extends Component
 {
@@ -14,7 +15,7 @@ class CategoryDropDown extends Component
             'categories' => Category::all()->unique(),
             'wilayas' => Wilaya::all(),
             'currentCategory' => Category::where('slug', request('category'))->first(),
-            'currentWilaya' => Wilaya::where('id', request('wilaya'))->first()
+            'currentWilaya' => Wilaya::where('id', request('wilaya'))->first(),
         ]);
     }
 }

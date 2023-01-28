@@ -11,7 +11,7 @@ use App\Http\Controllers\SessionController;
 // request()->routeIs('home')
 
 
-Route::get('/', [ProdController::class, 'showProds'])->name('home');
+Route::get('/', [ProdController::class, 'showProds'])->name('home')->middleware('auth');
 Route::get('prods/{prod:slug}', [ProdController::class, 'prodDetails'])->name('prod');
 
 Route::get('register', [RegisterController::class, 'create'])->name('register')->middleware('guest');

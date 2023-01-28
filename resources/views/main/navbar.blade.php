@@ -1,6 +1,6 @@
 <div class="py-4 px-5 d-flex justify-content-between navbar" style="background: #d8e1ec">
     <a href="/">
-        <p class="m-0 fs-1"> <span class="fw-lighter">EMB</span> | <span class="fw-bolder">DCGSI</span></p>
+        <p class="m-0 fs-1 d-flex align-items-center"> <span class="fw-lighter me-2">EMB</span> | <span class="fw-bolder mx-2">DCGSI</span><span class="fw-light fs-4 rounded px-3 py-1 ms-3" style="border: 2px solid #5b9be6; color:#5b9be6;">{{ isset($role)? $role: '' }}</span> </p>
     </a>
     <div class="d-flex justify-content-end" id="navbarSupportedContent">
         <b>
