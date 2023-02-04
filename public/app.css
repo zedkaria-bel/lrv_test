@@ -78,3 +78,30 @@ a{
 #flash-msg{
     background: #319728;
 }
+
+#zoom-backg{
+    transition: transform .2s;
+}
+
+.avatar{
+    cursor: pointer;
+}
+
+.close-img{
+    position: absolute !important;
+    top: 0;
+    right: 0;
+    transition: transform .2s;
+    cursor: pointer;
+}
+
+.zoom-backg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .9);
+}
+
+/* .avatar:hover { */
+    /* transform: scale(10); (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  /* } */
